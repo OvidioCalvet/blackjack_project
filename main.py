@@ -45,12 +45,15 @@ while game_is_not_over:
     user_hand = deal(user_hand)
     dealer_hand = deal(dealer_hand)
 
+    user_hand_is_not_over: bool = True
+    dealer_hand_is_not_over: bool = True
+
     print(f'Player hand: {user_hand}')
     print(f'Dealer hand: [{dealer_hand[1]}]\n')
 
-    user_hand_is_not_over: bool = True
-
-    if user_hand == 21: user_hand_is_not_over = False
+    if user_hand == 21: 
+        user_hand_is_not_over = False
+        print('Wow! Jackpot!')
 
     while user_hand_is_not_over:
 
@@ -83,16 +86,17 @@ while game_is_not_over:
 
             print('Lets see what the dealer gets..')
 
-        
     print(f'Dealer reveals: {dealer_hand}')
 
-    dealer_hand_is_not_over: bool = True
+
 
     while dealer_hand_is_not_over:
 
         dealer_hand_amount = calculate(dealer_hand)
 
-        if dealer_hand_amount >= 17 and dealer_hand_amount < 21: dealer_hand_is_not_over = False
+        if dealer_hand_amount >= 17 and dealer_hand_amount < 21: 
+            
+            dealer_hand_is_not_over = False
 
         elif dealer_hand_amount < 17:
 
@@ -110,13 +114,16 @@ while game_is_not_over:
             print(f'Dealer hit Jackpot!')
 
         else:
+
             dealer_hand_status = 'bust' 
             dealer_hand_is_not_over = False
 
             print('Dealer busted! (pause wtf)')
 
+    
+    
     determine_winner(user_amount=user_hand_amount, dealer_amount=dealer_hand_amount, user_status=user_hand_status, dealer_status=dealer_hand_status)
-
+    
     direction: str = input('Do you want to play another hand? Type either yes or no: ')
 
     if direction == 'No' or direction == 'no': game_is_not_over = False
