@@ -51,10 +51,6 @@ while game_is_not_over:
     print(f'Player hand: {user_hand}')
     print(f'Dealer hand: [{dealer_hand[1]}]\n')
 
-    if user_hand == 21: 
-        user_hand_is_not_over = False
-        print('Wow! Jackpot!')
-
     while user_hand_is_not_over:
 
         user_hand_amount = calculate(user_hand)
@@ -102,7 +98,7 @@ while game_is_not_over:
 
             dealer_hand = hit(dealer_hand)
             dealer_hand_amount = calculate(dealer_hand)
-            time.sleep(2)
+            time.sleep(1)
 
             print(f'Dealer hits: {dealer_hand}; Value: {dealer_hand_amount}')
 
