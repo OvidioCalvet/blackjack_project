@@ -3,10 +3,8 @@ import time
 
 cards = [11,1,2,3,4,5,6,7,8,9,10,10,10]
 
-user_hand = []
 user_hand_amount = 0
 user_hand_status = ''
-dealer_hand = []
 dealer_hand_amount = 0
 dealer_hand_status = ''
 
@@ -29,7 +27,6 @@ def calculate(player_hand):
 
 def determine_winner(user_amount, dealer_amount, user_status):
 
-
     if user_status == 'jackpot':
 
         print('You won!')
@@ -48,6 +45,9 @@ def determine_winner(user_amount, dealer_amount, user_status):
 game_is_not_over = True
 
 while game_is_not_over:
+
+    user_hand = []
+    dealer_hand = []
 
     user_hand = deal(user_hand)
     dealer_hand = deal(dealer_hand)
@@ -73,7 +73,6 @@ while game_is_not_over:
                 user_hand_is_not_over = False
 
                 print('You busted! (pause lmao)')
-                break
 
             elif user_hand_amount == 21:
 
@@ -102,7 +101,7 @@ while game_is_not_over:
         elif dealer_hand_amount < 17:
 
             dealer_hand = hit(dealer_hand)
-            time.sleep(1)
+            time.sleep(2)
 
             print(f'Dealer hits: {dealer_hand}')
 
@@ -123,11 +122,6 @@ while game_is_not_over:
     direction = input('Do you want to play another hand? Type either yes or no: ')
 
     if direction == 'No' or direction == 'no': game_is_not_over = False
-
-
-
-
-
 
 
 
