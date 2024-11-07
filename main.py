@@ -31,7 +31,7 @@ def determine_winner(user_amount, dealer_amount, user_status, dealer_status):
     if user_amount == dealer_amount: print('***Push!***')
     elif user_status == 'bust': return
     elif user_amount <= 21 and dealer_status == 'bust': print('***Winner!***')
-    elif user_amount > dealer_amount: print('***Winner!***')
+    elif user_amount > dealer_amount and dealer_amount <= 21: print('***Winner!***')
     else: print('***Loser!***')
 
 
@@ -62,6 +62,7 @@ while game_is_not_over:
 
             user_hand = hit(user_hand)
             user_hand_amount = calculate(user_hand)
+            print(f'Your hand: {user_hand}')
 
             if user_hand_amount > 21:
 
@@ -108,7 +109,8 @@ while game_is_not_over:
 
             print(f'Dealer hit Jackpot!')
 
-        else: 
+        else:
+            dealer_hand_status = 'bust' 
             dealer_hand_is_not_over = False
 
             print('Dealer busted! (pause wtf)')
